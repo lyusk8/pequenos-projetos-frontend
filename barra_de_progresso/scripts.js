@@ -8,19 +8,17 @@ function updateProgressBar(){
     progressBar.style.width = progress + "%";
 }
 
-function nextStep(){
-    progress += 10;
-    if(progress > 100) progress = 100;
-    updateProgressBar();
-    console.log(progress)
+function nextPreviousStep(e){
+    if(e.target.id === "previous-btn"){
+        progress -= 10;
+        if(progress < 0) progress = 0;
+        updateProgressBar()
+    } else if(e.target.id === "next-btn"){
+        progress += 10;
+        if(progress > 100) progress = 100;
+        updateProgressBar();
+    }
 }
 
-function previousStep(){
-    progress -= 10;
-    if(progress < 0) progress = 0;
-    updateProgressBar()
-    console.log(progress)
-}
-
-nextBtn.addEventListener("click", nextStep);
-previousBtn.addEventListener("click", previousStep);
+nextBtn.addEventListener("click", nextPreviousStep);
+previousBtn.addEventListener("click", nextPreviousStep);
