@@ -13,7 +13,6 @@ botao.addEventListener("click", ()=>{
         }
 
     }
-    console.log(numerosSorteados.sort())
     numeros.forEach((numero, i) => {
         numero.textContent = numerosSorteados[i++];
     })
